@@ -2,9 +2,8 @@ var express = require('express');
 var router = express.Router();
 
 
-/* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Car and parts'});
+    res.render('part-window', { title: 'Part window'});
 });
 
 module.exports = router;
