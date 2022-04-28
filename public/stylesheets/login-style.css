@@ -1,0 +1,37 @@
+Body {
+    font-family: Calibri, Helvetica, sans-serif;
+    background-color: #e8e9f4;
+}
+button {
+    background-color: #9aff97;
+    width: 100%;
+    color: black;
+    padding: 15px;
+    margin: 10px 0px;
+    border: none;
+    cursor: pointer;
+}
+form {
+    border: 3px solid #f1f1f1;
+}
+input[type=password] {
+    width: 100%;
+    margin: 8px 0;
+    padding: 12px 20px;
+    display: inline-block;
+    border: 2px solid #93ced5;
+    box-sizing: border-box;
+}
+button:hover {
+    opacity: 0.5;
+}
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    margin: 10px 5px;
+    background-color: #e6e7e7;
+}
+.container {
+    padding: 25px;
+    background-color: lightblue;
+}

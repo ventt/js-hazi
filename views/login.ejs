@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/login-style.css'/>
+</head>
+<body>
+<div style="text-align: center;"> <h1><%= title %></h1> </div>
+<form method="POST">
+    <div class="container form-group">
+        <label>Password : </label>
+        <label for="pass">
+            <input type="password" class="form-control" id="pass" placeholder="Enter Password" name="password" required>
+        </label>
+        <button type="submit">Login</button>
+    </div>
+</form>
+</body>
+</html>
