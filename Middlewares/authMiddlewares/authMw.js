@@ -3,6 +3,6 @@ module.exports = function (objectrepository) {
         if(typeof req.session.loggedIn === 'undefined' || req.session.loggedIn !== true){
             return res.redirect('/');
         }
-        next();
+        return next();
     };
 };

@@ -2,4 +2,56 @@
 .button-part .flex-row{
     margin: 1em;
 }
-
+body{
+    font-family: Calibri, Helvetica, sans-serif;
+    background-color: darkgrey;
+}
+button {
+    background-color: darkcyan;
+    width: 100%;
+    color: black;
+    padding: 15px;
+    margin: 10px 0px;
+    border: none;
+    cursor: pointer;
+}
+input[type=password] {
+    width: 100%;
+    margin: 8px 0;
+    padding: 12px 20px;
+    display: inline-block;
+    border: 2px solid #93ced5;
+    box-sizing: border-box;
+}
+.pass-label{
+    width: 100%;
+}
+button:hover {
+    opacity: 0.5;
+}
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    margin: 10px 5px;
+    background-color: #e6e7e7;
+}
+.login-container.container {
+    padding: 25px;
+    padding-top: 10px;
+}
+.login-title{
+    text-align: center;
+    background-color: darkgrey;
+}
+.login-title h1{
+    font-family: 'Monoton', cursive;
+    color: darkcyan;
+}
+.login-img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+}

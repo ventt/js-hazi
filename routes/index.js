@@ -17,27 +17,28 @@ module.exports = function (app) {
     CarModel: CarModel,
     PartModel: PartModel
   };
+
   app.get('/car-window:carId',
       authMw(objRepo),
       getCarByIdMw(objRepo),
       getPartsByCarIdMw(objRepo),
-      renderMw(objRepo, 'car-window', {title:"Car Window"}));
+      renderMw(objRepo, 'car-window', ));
 
   app.use('/newCar',
       authMw(objRepo),
       saveCarMw(objRepo),
-      renderMw(objRepo, 'car-details-form', {title:"Car Window"}));
+      renderMw(objRepo, 'car-details-form', ));
 
   app.use('/car-window/edit/:carId',
       authMw(objRepo),
       getCarByIdMw(objRepo),
       saveCarMw(objRepo),
-      renderMw(objRepo, 'car-details-form', {title:"Car Window"}));
+      renderMw(objRepo, 'car-details-form', ));
 
   app.use('/delete:carId',
       authMw(objRepo),
       deleteCarByIdMw(objRepo),
-      renderMw(objRepo, 'car-window', {title:"Car Window"})
+      renderMw(objRepo, 'car-window', )
       );
 
 
@@ -46,7 +47,7 @@ module.exports = function (app) {
       getCarByIdMw(objRepo),
       savePartMw(objRepo),
       saveCarMw(objRepo),
-      renderMw(objRepo, 'car-details-form', {title:"Car Window"}));
+      renderMw(objRepo, 'car-details-form', ));
 
   app.use('/car-window:carId/editPart:partId/',
       authMw(objRepo),
@@ -54,14 +55,14 @@ module.exports = function (app) {
       getPartByIdMw(objRepo),
       savePartMw(objRepo),
       saveCarMw(objRepo),
-      renderMw(objRepo, 'part-window', {title:"Car Window"}));
+      renderMw(objRepo, 'part-window', ));
 
   app.use('/car-window:carId/deletePart:partId/',
       authMw(objRepo),
       getCarByIdMw(objRepo),
       deletePartById(objRepo),
       saveCarMw(objRepo),
-      renderMw(objRepo, 'car-details-form', {title:"Car Window"}));
+      renderMw(objRepo, 'car-details-form'));
   app.use('/logout',
       authMw(objRepo),
       logoutMw(objRepo));
@@ -69,8 +70,9 @@ module.exports = function (app) {
   app.use('/index',
       authMw(objRepo),
       getCarsMw(objRepo),
-      renderMw(objRepo, 'index',{title:"Cars and parts"}));
+      renderMw(objRepo, 'index'));
   app.use('/',
       checkPassMw(objRepo),
-      renderMw(objRepo, 'login', {title:"Cars and parts login"}));
+      //authMw(objRepo),
+      renderMw(objRepo, 'login'));
 };
