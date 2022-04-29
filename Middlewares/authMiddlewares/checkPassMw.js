@@ -7,7 +7,7 @@ module.exports = function (objectrepository) {
         if (req.body.password === 'titkos'){
             req.session.loggedIn = true;
             res.locals.incorrectPassMessage = '';
-            return req.session.save(error => res.redirect('/index'));
+            return req.session.save(err => res.redirect('/index'));
         }
         res.locals.error = 'Incorrect password!';
         res.locals.incorrectPassMessage = 'Incorrect password!';

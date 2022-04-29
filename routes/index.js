@@ -18,29 +18,11 @@ module.exports = function (app) {
     PartModel: PartModel
   };
 
-  app.get('/car-window:carId',
-      authMw(objRepo),
-      getCarByIdMw(objRepo),
-      getPartsByCarIdMw(objRepo),
-      renderMw(objRepo, 'car-window', ));
-
-  app.use('/newCar',
-      authMw(objRepo),
-      saveCarMw(objRepo),
-      renderMw(objRepo, 'car-details-form', ));
-
   app.use('/car-window/edit/:carId',
       authMw(objRepo),
       getCarByIdMw(objRepo),
       saveCarMw(objRepo),
       renderMw(objRepo, 'car-details-form', ));
-
-  app.use('/delete:carId',
-      authMw(objRepo),
-      deleteCarByIdMw(objRepo),
-      renderMw(objRepo, 'car-window', )
-      );
-
 
   app.use('/car-window:carId/newPart/',
       authMw(objRepo),
@@ -56,6 +38,22 @@ module.exports = function (app) {
       savePartMw(objRepo),
       saveCarMw(objRepo),
       renderMw(objRepo, 'part-window', ));
+
+  app.get('/car-window:carId',
+      authMw(objRepo),
+      getCarByIdMw(objRepo),
+      getPartsByCarIdMw(objRepo),
+      renderMw(objRepo, 'car-window', ));
+
+  app.get('/newCar',
+      authMw(objRepo),
+      saveCarMw(objRepo),
+      renderMw(objRepo, 'car-details-form', ));
+
+  app.use('/delete/:carId',
+      authMw(objRepo),
+      deleteCarByIdMw(objRepo),
+      );
 
   app.use('/car-window:carId/deletePart:partId/',
       authMw(objRepo),

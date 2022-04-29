@@ -12,8 +12,7 @@ app.use(bodyParser.json());
 
 app.use(
     session({
-        secret: 'secret',
-        loggedIn: false
+        secret: 'secret'
     })
 );
 
@@ -21,7 +20,6 @@ app.use(express.static(__dirname + '/public'));
 require('./routes/index')(app);
 
 
-//TODO: ejs-re
 app.use((err,res,next)=>{
     res.end('Problem...');
     console.log(err);

@@ -14,7 +14,8 @@
                         var year = car.date.getUTCFullYear();
                         var day = car.date.getUTCDate(); %>
                     <li><%= car.manufacturer %> <%= car.type %> <%= car.fuelType %> <%= year %>.<%= month %>.<%= day %>
-                        <a class="btn" href="/car-window/edit/<%= car._id %>/">edit</a>
+                        <a class="btn btn-primary" href="/car-window/edit/<%= car._id %>/">edit</a>
+                        <a class="btn btn-warning" href="/delete/<%= car._id %>/">delete</a>
                     </li>
                     <% } %>
                 </ul>
@@ -23,7 +24,7 @@
         <div class="col-2"></div>
         <div class="col-4 column">
             <div class="row mb-3">
-                <a href="/cardetails" class="btn btn-primary btn-lg w-75" tabindex="-1" role="button"
+                <a href="/newCar" class="btn btn-primary btn-lg w-75" tabindex="-1" role="button"
                    aria-disabled="true">Add a new car</a>
             </div>
             <div class="row">
