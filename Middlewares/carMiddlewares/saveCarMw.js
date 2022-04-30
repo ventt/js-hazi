@@ -9,8 +9,8 @@ module.exports = function (objectrepository) {
         if(typeof req.body.manufacturer === 'undefined' ||
             typeof req.body.type === 'undefined' ||
             typeof req.body.date === 'undefined' ||
-            typeof req.body.mileage() === 'undefined'||
-            typeof req.body.fuelType() === 'undefined')
+            typeof req.body.mileage === 'undefined'||
+            typeof req.body.fuelType === 'undefined')
         {
             return next();
         }

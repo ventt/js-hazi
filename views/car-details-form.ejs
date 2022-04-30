@@ -1,8 +1,8 @@
 <%- include('header') -%>
 <body>
 <%- include('nav') -%>
-<%  var isEdit = false; %>
-<%if(typeof(car) !== 'undefined'){
+<% var isEdit = false; %>
+<% if(typeof (car) !== 'undefined'){
     var manu = car.manufacturer;
     var constDate = car.date;
     var type = car.type;
@@ -10,49 +10,67 @@
     var mileage = car.mileage;
     isEdit = true;
 
-}%>
+} %>
 <div class="row">
     <div class="col-4 ms-4">
         <h1>
-            <%if(isEdit){%>
-            Edit datas of your car
-            <%}else{%>
-                    Add the datas of your new car
-            <%}%>
+            <% if(isEdit){ %>
+                Edit datas of your car
+            <% }else{ %>
+                Add the datas of your new car
+            <% } %>
         </h1>
         <form method="POST">
-            <div class="mb-3 form-group" >
+            <div class="mb-3 form-group">
                 <label for="inputManufacturer" class="form-label"> </label>
-                <input  class="form-control" type="text" id="inputManufacturer" value="<%= isEdit? manu : ''%>">
+                <input class="form-control" type="text" id="manufacturer" name="manufacturer" value="<%= isEdit ? manu : '' %>">
                 <div id="manufacturerHelp" class="form-text">Example: Volswagen</div>
             </div>
             <div class="mb-3 form-group">
                 <label for="inputDate" class="form-label">Construction date</label>
-                <input type="date" class="form-control" type="date" id="inputDate" <%if(isEdit){%> value="<%=moment(constDate).format('YYYY-MM-DD')%>" <%}%>>
+                <input type="date" class="form-control" type="date"  id="date" name="date"
+                        <% if(isEdit){ %>
+                       value="<%= moment(constDate).format('YYYY-MM-DD') %>"
+                        <% } %>
+                >
                 <div id="typeHelp" class="form-text">Date when its made</div>
             </div>
-           <div class="mb-3 form-group">
+            <div class="mb-3 form-group">
                 <label for="inputType" class="form-label">Type</label>
-                <input  class="form-control" id="inputType" type="text" value="<%= isEdit? type : ''%>">
+                <input class="form-control" id="type" name="type" type="text" value="<%= isEdit ? type : '' %>">
                 <div id="typeHelp" class="form-text">Example: Golf</div>
             </div>
-             <div class="mb-3 form-group">
+            <div class="mb-3 form-group">
                 <label for="fuelType" class="form-label">Fuel type</label>
-                <select class="form-select form-control" aria-label="Default select example" >
+                <select class="form-select form-control" id="fuelType" name="fuelType" aria-label="Default select example">
                     <option selected>Select fuel type</option>
-                    <option <%if(isEdit){%><%if(fuelType === 'Diesel'){%>selected="selected" <%}%><%}%> value="1">Diesel</option>
-                    <option <%if(isEdit){%><%if(fuelType === 'Petrol'){%>selected="selected" <%}%><%}%> value="2">Petrol</option>
-                    <option <%if(isEdit){%><%if(fuelType === 'Electric'){%>selected="selected" <%}%><%}%> value="3">Electric</option>
+                    <option <% if(isEdit){ %><% if(fuelType === 'Diesel'){ %>selected="selected"
+                            <% } %>
+                            <% } %>
+                            value="Diesel">Diesel
+                    </option>
+                    <option <% if(isEdit){ %><% if(fuelType === 'Petrol'){ %>selected="selected"
+                            <% } %>
+                            <% } %>
+                            value="Petrol">Petrol
+                    </option>
+                    <option <% if(isEdit){ %><% if(fuelType === 'Electric'){ %>selected="selected"
+                            <% } %>
+                            <% } %>
+                            value="Electric">Electric
+                    </option>
                 </select>
                 <div id="typeHelp" class="form-text">Electricity is basically a fuel but in an other form</div>
             </div>
             <div class="mb-3 form-group">
                 <label for="inputMilaega" class="form-label">Mileage</label>
-                <input type="number" class="form-control" id="inputManufacturer" value="<%= isEdit? mileage : 0%>">
+                <input type="number" class="form-control" id="mileage" name="mileage" value="<%= isEdit ? mileage : 0 %>">
                 <div id="mileagaHelp" class="form-text">In kilometers</div>
             </div>
             <div class="row form-group">
-                <div class="col-2"><input type="submit" class="btn btn-primary" value="Save"/></div>
+                <div class="col-2">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
                 <div class="col-2"><a href="/index" class="btn btn-warning" role="button">Cancel</a></div>
             </div>
         </form>

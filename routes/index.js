@@ -3,7 +3,7 @@ const renderMw = require('../Middlewares/renderMw');
 const getCarByIdMw = require('../Middlewares/carMiddlewares/getCarByIdMw');
 const getPartsByCarIdMw = require('../Middlewares/partMiddlewares/getPartsByCarIdMw');
 const getPartByIdMw = require('../Middlewares/partMiddlewares/getPartByIdMw');
-const deleteCarByIdMw = require('../Middlewares/carMiddlewares/getCarByIdMw');
+const deleteCarByIdMw = require('../Middlewares/carMiddlewares/deleteCarByIdMw');
 const saveCarMw = require('../Middlewares/carMiddlewares/saveCarMw');
 const savePartMw = require('../Middlewares/partMiddlewares/savePartMw');
 const deletePartById = require('../Middlewares/partMiddlewares/deletePartById');
@@ -45,14 +45,15 @@ module.exports = function (app) {
       getPartsByCarIdMw(objRepo),
       renderMw(objRepo, 'car-window', ));
 
-  app.get('/newCar',
+  app.post('/newCar',
       authMw(objRepo),
       saveCarMw(objRepo),
       renderMw(objRepo, 'car-details-form', ));
 
   app.use('/delete/:carId',
       authMw(objRepo),
-      deleteCarByIdMw(objRepo),
+      getCarByIdMw(objRepo),
+      deleteCarByIdMw(objRepo)
       );
 
   app.use('/car-window:carId/deletePart:partId/',
