@@ -5,8 +5,7 @@ const requireOption = require("../requireOption");
 module.exports = function (objectrepository) {
     const CarModel = requireOption(objectrepository, 'CarModel');
     return function (req, res, next) {
-        //find all cars from mongo db, without query!
-        CarModel.findById(req.params.carId, (err, car) => {
+        CarModel.findOne({_id: req.params.carId}, (err, car) => {
                 if (err || !car) {
                     return next(err);
                 }

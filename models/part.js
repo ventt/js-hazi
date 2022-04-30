@@ -1,6 +1,6 @@
-//const Schema = require('mongoose').Schema;
+const Schema = require('mongoose').Schema;
 const db = require('../config/db');
-const {Schema} = require("mongoose");
+//const {Schema} = require("mongoose");
 
 const Part = db.model('Part',{
     name: String,
