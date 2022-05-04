@@ -15,12 +15,12 @@
                     var day = car.date.getUTCDate(); %>
                     <% for (key in parts) { var part = parts[key]; %>
                     <% var name = part.name;
-                    var date = part.date%>
+                        var date = part.date %>
                     <li><%= part.name %> <%= year %>.<%= month %>.<%= day %>
-                        <a class="btn btn-primary" href="/part-window/<%= car._id%>/edit/<%= part._id %>/">edit</a>
+                        <a class="btn btn-primary" href="/part-window/<%= car._id %>/edit/<%= part._id %>/">edit</a>
                         <a class="btn btn-warning" href="/part-delete/<%= car._id %>/<%= part._id %>/">delete</a>
                     </li>
-                    <%}%>
+                    <% } %>
                 </ul>
             </div>
         </div>
@@ -28,11 +28,12 @@
         <div class="col-6 column">
             <div class="row mb-3">
                 <div class="d-grid gap-3">
-                    <a href="/part-window/<%=car._id%>/newPart" class="btn btn-primary btn-lg w-75" tabindex="-1" role="button"
+                    <a href="/part-window/<%= car._id %>/newPart" class="btn btn-primary btn-lg w-75" tabindex="-1"
+                       role="button"
                        aria-disabled="true">Add a new part</a>
-                  <button type="button" class="p-2 btn btn-primary">Edit car info</button>
-                  <button type="button" class="p-2 btn btn-primary">Delete car</button>
-                  <button type="button" class="p-2 btn btn-primary">Cancel</button>
+                    <a class="btn btn-primary" href="/car-window/<%= car._id %>/edit/">Edit car info</a>
+                    <a class="btn btn-warning" href="/delete/<%= car._id %>/">Delete car</a>
+                    <a class="btn btn-warning" href="/index" role="button">Cancel</a>
                 </div>
             </div>
 

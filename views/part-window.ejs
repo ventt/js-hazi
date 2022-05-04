@@ -8,7 +8,6 @@
     var name = part.name;
     var date = part.date;
     isEdit = true;
-    //doesnt load part when its edit mode
 } %>
 <div class="row">
     <div class="col-4 ms-4">
@@ -37,7 +36,7 @@
 
             <div class="row">
                 <div class="col-2"><button type="submit" class="btn btn-primary">Apply</button></div>
-                <div class="col-2"><button type="cancel" class="btn btn-primary">Cancel</button></div>
+                <div class="col-2"><a href="/car-window/<%= car._id%>/" class="btn btn-warning" role="button">Cancel</a></div>
             </div>
         </form>
     </div>
