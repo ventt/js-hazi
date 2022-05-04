@@ -13,8 +13,10 @@
                     <% var month = car.date.getUTCMonth() + 1;
                         var year = car.date.getUTCFullYear();
                         var day = car.date.getUTCDate(); %>
-                    <a class="list-group-item list-group-item-action" href="/car-window/<%= car._id %>/">
-                        <%= car.manufacturer %> <%= car.type %>, <%= car.fuelType %>, <%= year %>.<%= month %>.<%= day %>
+                    <a class="list-group-item list-group-item-action d-inline-flex justify-content-evenly" href="/car-window/<%= car._id %>/">
+                        <div class="me-auto"><%= car.manufacturer %> <%= car.type %></div>
+                        <div class="me-auto"><%= car.fuelType %></div>
+                        <div><%= year %>.<%= month %>.<%= day %></div>
                     </a>
                     <% } %>
                 </ul>

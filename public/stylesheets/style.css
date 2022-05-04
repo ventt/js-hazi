@@ -4,6 +4,7 @@
 }
 body{
     font-family: Calibri, Helvetica, sans-serif;
+    background-image: url("public/images/jam-background.jpg");
     background-color: darkgrey;
 }
 button {

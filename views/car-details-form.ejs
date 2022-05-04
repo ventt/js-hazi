@@ -2,7 +2,7 @@
 <body>
 <%- include('nav') -%>
 <% var isEdit = false; %>
-<% if(typeof (car) !== 'undefined'){
+<% if (typeof (car) !== 'undefined') {
     var manu = car.manufacturer;
     var constDate = car.date;
     var type = car.type;
@@ -21,18 +21,10 @@
         </h1>
         <form method="POST">
             <div class="mb-3 form-group">
-                <label for="inputManufacturer" class="form-label"> </label>
-                <input class="form-control" type="text" id="manufacturer" name="manufacturer" value="<%= isEdit ? manu : '' %>">
+                <label for="inputManufacturer" class="form-label">Manufacturer: </label>
+                <input class="form-control" type="text" id="manufacturer" name="manufacturer"
+                       value="<%= isEdit ? manu : '' %>">
                 <div id="manufacturerHelp" class="form-text">Example: Volswagen</div>
-            </div>
-            <div class="mb-3 form-group">
-                <label for="inputDate" class="form-label">Construction date</label>
-                <input type="date" class="form-control" type="date"  id="date" name="date"
-                        <% if(isEdit){ %>
-                       value="<%= moment(constDate).format('YYYY-MM-DD') %>"
-                        <% } %>
-                >
-                <div id="typeHelp" class="form-text">Date when its made</div>
             </div>
             <div class="mb-3 form-group">
                 <label for="inputType" class="form-label">Type</label>
@@ -40,8 +32,18 @@
                 <div id="typeHelp" class="form-text">Example: Golf</div>
             </div>
             <div class="mb-3 form-group">
+                <label for="inputDate" class="form-label">Construction date</label>
+                <input type="date" class="form-control" type="date" id="date" name="date"
+                <% if(isEdit){ %>
+                       value="<%= moment(constDate).format('YYYY-MM-DD') %>"
+                        <% } %>
+                >
+                <div id="typeHelp" class="form-text">Date when the car made</div>
+            </div>
+            <div class="mb-3 form-group">
                 <label for="fuelType" class="form-label">Fuel type</label>
-                <select class="form-select form-control" id="fuelType" name="fuelType" aria-label="Default select example">
+                <select class="form-select form-control" id="fuelType" name="fuelType"
+                        aria-label="Default select example">
                     <option selected>Select fuel type</option>
                     <option <% if(isEdit){ %><% if(fuelType === 'Diesel'){ %>selected="selected"
                             <% } %>
@@ -59,18 +61,24 @@
                             value="Electric">Electric
                     </option>
                 </select>
-                <div id="typeHelp" class="form-text">Electricity is basically a fuel but in an other form</div>
+                <div id="typeHelp" class="form-text">Electricity is basically a fuel but in compact form</div>
             </div>
             <div class="mb-3 form-group">
                 <label for="inputMilaega" class="form-label">Mileage</label>
-                <input type="number" class="form-control" id="mileage" name="mileage" value="<%= isEdit ? mileage : 0 %>">
-                <div id="mileagaHelp" class="form-text">In kilometers</div>
+                <input type="number" class="form-control" id="mileage" name="mileage"
+                       value="<%= isEdit ? mileage : 0 %>">
+                <div id="mileagaHelp" class="form-text">In KM</div>
             </div>
             <div class="row form-group">
                 <div class="col-2">
                     <button type="submit" class="btn btn-primary">Save</button>
                 </div>
-                <div class="col-2"><a href="/car-window/<%= car._id%>/" class="btn btn-warning" role="button">Cancel</a></div>
+                <% if(isEdit) { %>
+                    <div class="col-2"><a href="/car-window/<%= car._id %>/" class="btn btn-warning" role="button">Cancel</a>
+                    </div>
+                <% } else{ %>
+                    <div class="col-2"><a href="/index/" class="btn btn-warning" role="button">Cancel</a></div>
+                <% } %>
             </div>
         </form>
     </div>
