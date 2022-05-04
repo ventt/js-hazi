@@ -47,6 +47,10 @@ button:hover {
     font-family: 'Monoton', cursive;
     color: darkcyan;
 }
+.nav-title{
+    font-family: 'Monoton', cursive;
+    color: darkcyan;
+}
 .login-img{
     display: block;
     margin-left: auto;
