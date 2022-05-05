@@ -9,14 +9,14 @@
                 <h2>Parts installed</h2>
             </div>
             <div class="row">
-                <ul class="list-group car-parts-list">
+                <ul class="list-group car-parts-list ">
                     <% var month = car.date.getUTCMonth() + 1;
                     var year = car.date.getUTCFullYear();
                     var day = car.date.getUTCDate(); %>
                     <% for (key in parts) { var part = parts[key]; %>
                     <% var name = part.name;
                         var date = part.date %>
-                    <li class="list-group-item list-group-item-action d-flex flex-row justify-content-evenly">
+                    <li class="list-group-item list-group-item-action d-flex flex-row justify-content-evenly hovertext" data-hover="Part name: <%=part.name%>   Replace date: <%= moment(part.date).format('YYYY-MM-DD') %>">
                         <span class="me-auto"><%= part.name %> <%= year %>.<%= month %>.<%= day %></span>
                         <a class="btn btn-outline-primary " href="/part-window/<%= car._id %>/edit/<%= part._id %>/">edit</a>
                         <a class="btn btn-outline-danger" href="/part-delete/<%= car._id %>/<%= part._id %>/">delete</a>
@@ -57,9 +57,9 @@
                 <div class="d-grid gap-3">
                     <a href="/part-window/<%= car._id %>/newPart" class="btn btn-primary"
                        role="button" >Add a new part</a>
-                    <a class="btn btn-info" href="/car-window/<%= car._id %>/edit/" role="button" >Edit car info</a>
-                    <a class="btn btn-danger" href="/delete/<%= car._id %>/" role="button" >Delete car</a>
-                    <a class="btn btn-warning" href="/index" role="button">Cancel</a>
+                    <a class="btn btn-info" href="/car-window/<%= car._id %>/edit/" role="button" >Edit car data</a>
+                    <a class="btn btn-danger hovertext" href="/delete/<%= car._id %>/" role="button" data-hover="It will delete your <%=car.manufacturer%>, for real." >Delete car</a>
+                    <a class="btn btn-warning" href="/index" role="button">Back</a>
                 </div>
             </div>
 

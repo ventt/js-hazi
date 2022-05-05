@@ -8,12 +8,12 @@
                 <%if(cars.length === 0){%><h2>There is no car to display.</h2><%} else{%> <h2>Your cars</h2><%}%>
             </div>
             <div class="row">
-                <ul class="list-group">
+                <ul class="list-group car-list">
                     <% for (key in cars) { var car = cars[key]; %>
                     <% var month = car.date.getUTCMonth() + 1;
                         var year = car.date.getUTCFullYear();
                         var day = car.date.getUTCDate(); %>
-                    <a class="list-group-item list-group-item-action d-inline-flex justify-content-evenly" href="/car-window/<%= car._id %>/">
+                    <a class="list-group-item list-group-item-action d-inline-flex justify-content-evenly hovertext" href="/car-window/<%= car._id %>/" data-hover="Here you can check your <%= car.manufacturer%> parts and data!">
                         <div class="me-auto"><%= car.manufacturer %> <%= car.type %></div>
                         <div class="me-auto"><%= car.fuelType %></div>
                         <div><%= year %>.<%= month %>.<%= day %></div>
